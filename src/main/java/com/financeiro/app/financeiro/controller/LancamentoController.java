@@ -48,7 +48,7 @@ public class LancamentoController {
         if(!lancamentoService.obterPorId(id).isPresent())
             throw new RegraNegocioExeption("Lancamento não encontrado");
         try{
-
+            dto.setId(id);
             Lancamento result = lancamentoService.atualizar(mapper.lancamentoDTOToLancamento(dto));
             return new ResponseEntity(result, HttpStatus.OK);
 
